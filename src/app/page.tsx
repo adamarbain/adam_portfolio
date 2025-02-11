@@ -11,11 +11,11 @@ export default function Home() {
       <section id="home" className="container flex flex-col items-center justify-center gap-4 pt-16 md:pt-24">
         <div className="flex flex-col items-center gap-4 text-center">
           <h1 className="text-3xl font-bold sm:text-4xl md:text-5xl lg:text-6xl">
-            Hi I'm <span className="text-primary">Adam Arbain</span>
+            Hi Im <span className="text-primary">Adam Arbain</span>
           </h1>
           <h2 className="text-xl font-semibold sm:text-2xl">can call me <span className="font-bold">adambain</span></h2>
           <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
-            I'm a full-stack developer specializing in building exceptional digital experiences.
+            Im a full-stack developer specializing in building exceptional digital experiences.
           </p>
           <TooltipProvider>
             <div className="flex gap-4">
@@ -70,11 +70,11 @@ export default function Home() {
           <CardContent className="grid grid-cols-1 gap-8 p-6 md:grid-cols-2">
             <div className="flex flex-col gap-4">
               <p className="text-muted-foreground">
-                I'm a passionate developer with experience in building web applications using modern technologies. I
+                Im a passionate developer with experience in building web applications using modern technologies. I
                 love creating intuitive and performant user experiences.
               </p>
               <p className="text-muted-foreground">
-                My tech stack includes React, Next.js, TypeScript, and Tailwind CSS. I'm always learning and exploring
+                My tech stack includes React, Next.js, TypeScript, and Tailwind CSS. Im always learning and exploring
                 new technologies to stay up-to-date with the latest trends.
               </p>
             </div>
@@ -121,7 +121,7 @@ export default function Home() {
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground">
-              I'm currently open for freelance opportunities and collaborations. Feel free to reach out if you'd like to
+              Im currently open for freelance opportunities and collaborations. Feel free to reach out if you would like to
               work together!
             </p>
             <Button className="mt-4">
