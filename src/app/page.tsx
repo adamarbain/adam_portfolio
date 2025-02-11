@@ -11,8 +11,9 @@ export default function Home() {
       <section id="home" className="container flex flex-col items-center justify-center gap-4 pt-16 md:pt-24">
         <div className="flex flex-col items-center gap-4 text-center">
           <h1 className="text-3xl font-bold sm:text-4xl md:text-5xl lg:text-6xl">
-            Hi, I'm <span className="text-primary">Your Name</span>
+            Hi I'm <span className="text-primary">Adam Arbain</span>
           </h1>
+          <h2 className="text-xl font-semibold sm:text-2xl">can call me <span className="font-bold">adambain</span></h2>
           <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
             I'm a full-stack developer specializing in building exceptional digital experiences.
           </p>
