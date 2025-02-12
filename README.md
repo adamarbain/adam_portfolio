@@ -46,3 +46,26 @@ npx shadcn@latest add [component-name]
 
 ## Lucide Icons
 We are using Lucide Icons in this project. You can find the icons [here](https://lucide.dev/)
+
+## Build and Run Docker Container
+### 1.Build Docker Image
+```bash
+docker build -t my-portfolio .
+```
+docker build → This tells Docker to create a Docker image from the Dockerfile.
+-t my-portfolio → The -t flag tags the image with a name (my-portfolio), making it easier to reference.
+. → The dot (.) means "use the current directory" (where the Dockerfile is located) as the build context.
+
+### 2.Run Docker Container
+```bash
+docker run -d -p 3000:3000 my-portfolio
+```
+docker run → Runs a container from the my-portfolio image.
+-p 3000:3000 → This maps port 3000 inside the container to port 3000 on your machine, so you can access the app in your browser at http://localhost:3000.
+my-portfolio → This specifies the Docker image name to run.
+
+### 3.Stop Docker Container
+```bash
+docker ps
+docker stop [container-id]
+```

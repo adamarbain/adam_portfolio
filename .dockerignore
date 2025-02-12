@@ -1,0 +1,7 @@
+# Function of dockerignoe file is to exclude files and directories from the build context.
+node_modules
+.next
+out
+.git
+Dockerfile
+README.md
