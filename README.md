@@ -36,7 +36,13 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
 ## We are using 'shadcn' as UI library
+- You can find the documentation [here](https://shadcn.vercel.app/)
+
+
 Below is the command on how to add components from 'shadcn' to your project
 ```bash
 npx shadcn@latest add [component-name]
 ```
+
+## Lucide Icons
+We are using Lucide Icons in this project. You can find the icons [here](https://lucide.dev/)

@@ -76,3 +76,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+.light body {
+  background: linear-gradient(to bottom right, #83D475, #ABE098, #C5E8B7);
+}
+
+.dark body {
+  background: linear-gradient(to bottom right, #003304, #006631, #009924);
+}
