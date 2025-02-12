@@ -113,7 +113,7 @@ export default function Home() {
           <CardContent className="flex flex-col md:flex-row gap-6">
             <div className="md:w-1/3">
               <Image
-                src="/profile-picture.jpg"
+                src="/profile-picture.png"
                 alt="Adam Bin Arbain"
                 width={300}
                 height={300}
