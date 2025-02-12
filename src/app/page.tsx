@@ -285,7 +285,7 @@ export default function Home() {
               /> */}
               <ul className="list-disc pl-6 space-y-2">
                 <li>
-                  Collaborated in a team to design and implement "JOJOLands," a complex virtual environment modeled as a
+                  Collaborated in a team to design and implement JOJOLands, a complex virtual environment modeled as a
                   sub-tropical island using advanced data structures.
                 </li>
                 <li>
@@ -309,7 +309,7 @@ export default function Home() {
                 UM to UI (Universitas Indonesia) Short Course on Sustainable IT 2024 - Short Term Outbound Mobility
                 Program
               </li>
-              <li>FCSIT Dean's Cup 2023 - Contest Protocol Committee, competition</li>
+              <li>FCSIT Deans Cup 2023 - Contest Protocol Committee, competition</li>
             </ul>
           </CardContent>
         </Card>
