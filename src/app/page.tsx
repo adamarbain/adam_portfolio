@@ -6,6 +6,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { Badge } from "@/components/ui/badge"
 import { Github, Mail, Phone, Linkedin, Download } from "lucide-react";
 import Image from "next/image";
 
@@ -21,7 +22,7 @@ export default function Home() {
           <h1 className="text-3xl font-bold sm:text-4xl md:text-5xl lg:text-6xl">
             Adam Bin Arbain
           </h1>
-          <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
+          <p className="max-w-[42rem] leading-normal sm:text-xl sm:leading-8">
             Software Engineering student at Universiti Malaya
           </p>
           <TooltipProvider>
@@ -121,7 +122,7 @@ export default function Home() {
               />
             </div>
             <div className="md:w-2/3">
-              <p className="text-muted-foreground">
+              <p>
                 I am a third-year Software Engineering major at Universiti
                 Malaya, passionate about software development. I am currently
                 seeking a part-time opportunity in the Software Engineering
@@ -139,7 +140,7 @@ export default function Home() {
         <div className="space-y-4">
           <Card>
             <CardHeader>
-              <CardTitle>University of Malaya | Kuala Lumpur</CardTitle>
+              <CardTitle>University Malaya | Kuala Lumpur</CardTitle>
             </CardHeader>
             <CardContent>
               <p>Bachelor of Computer Science (Software Engineering)</p>
@@ -150,7 +151,7 @@ export default function Home() {
           <Card>
             <CardHeader>
               <CardTitle>
-                Centre for Foundation Studies in Science, University of Malaya |
+                Centre for Foundation Studies in Science, University Malaya |
                 Kuala Lumpur
               </CardTitle>
             </CardHeader>
@@ -172,22 +173,43 @@ export default function Home() {
           <CardContent className="pt-6">
             <ul className="list-disc pl-6 space-y-2">
               <li>
-                <strong>Languages:</strong> Malay (Native Proficiency), English
-                (Professional Proficiency)
+                <strong className="mr-2">Languages:</strong> 
+                  <Badge variant="skill">Malay (Native)</Badge>
+                  <Badge variant="skill">English (Professional)</Badge>
               </li>
               <li>
-                <strong>Programming Languages:</strong> Java, HTML/CSS/JS,
-                Python, Assembly, C#, XML
+                <strong className="mr-2">Programming Languages:</strong>
+                <Badge variant="skill">Java</Badge>
+                <Badge variant="skill">HTML</Badge>
+                <Badge variant="skill">CSS</Badge>
+                <Badge variant="skill">JavaScript</Badge>
+                <Badge variant="skill">Python</Badge>
+                <Badge variant="skill">Assembly</Badge>
+                <Badge variant="skill">C#</Badge>
+                <Badge variant="skill">XML</Badge>
               </li>
               <li>
-                <strong>Software and Frameworks:</strong> Visual Studio Code,
-                Node.js, React.js, MongoDB, Android Studio, SQL, Oracle, Packet
-                Tracer, Docker, Prisma ORM, Vue.js, RESTful API, PostgreSQL,
-                DBeaver, AWS S3 Bucket
+                <strong className="mr-2">Software and Frameworks:</strong> 
+                <Badge variant="skill">VS Code</Badge>
+                <Badge variant="skill">Node.js</Badge>
+                <Badge variant="skill">React.js</Badge>
+                <Badge variant="skill">MongoDB</Badge>
+                <Badge variant="skill">Android Studio</Badge>
+                <Badge variant="skill">SQL</Badge>
+                <Badge variant="skill">Oracle</Badge>
+                <Badge variant="skill">Packet Tracer</Badge>
+                <Badge variant="skill">Docker</Badge>
+                <Badge variant="skill">Prisma ORM</Badge>
+                <Badge variant="skill">Vue.js</Badge>
+                <Badge variant="skill">RESTful API</Badge>
+                <Badge variant="skill">PostgreSQL</Badge>
+                <Badge variant="skill">DBeaver</Badge>
+                <Badge variant="skill">AWS S3</Badge>
               </li>
               <li>
-                <strong>Skills:</strong> CCNAv7 NetaCAD Certified (Cisco),
-                Experienced in Software Modelling & SRS
+                <strong className="mr-2">Skills:</strong>
+                <Badge variant="skill">CCNAv7 NetaCAD (Cisco)</Badge>
+                <Badge variant="skill">Software Modelling & SRS</Badge>
               </li>
             </ul>
           </CardContent>
@@ -205,6 +227,14 @@ export default function Home() {
           </CardHeader>
           <CardContent>
             <p className="mb-2">July 2024 – December 2024</p>
+            <div className="mb-4 flex flex-wrap gap-1">
+              <Badge variant="skill">Vue.js</Badge>
+              <Badge variant="skill">TypeScript</Badge>
+              <Badge variant="skill">Node.js</Badge>
+              <Badge variant="skill">Express</Badge>
+              <Badge variant="skill">Prisma ORM</Badge>
+              <Badge variant="skill">PostgreSQL</Badge>
+            </div>
             <ul className="list-disc pl-6 space-y-2">
               <li>
                 Developing an Enterprise Resource Planning (ERP) project named
@@ -239,6 +269,15 @@ export default function Home() {
                 height={200}
                 className="rounded-lg object-cover mb-4"
               />
+               <div className="mb-4 flex flex-wrap gap-1">
+                <Badge variant="skill">Vue.js</Badge>
+                <Badge variant="skill">TypeScript</Badge>
+                <Badge variant="skill">Node.js</Badge>
+                <Badge variant="skill">Express</Badge>
+                <Badge variant="skill">Prisma</Badge>
+                <Badge variant="skill">PostgreSQL</Badge>
+                <Badge variant="skill">AWS S3</Badge>
+              </div>
               <ul className="list-disc pl-6 space-y-2">
                 <li>
                   Contributed to the development of an Enterprise Resource
@@ -278,6 +317,13 @@ export default function Home() {
                 height={300}
                 className="rounded-lg object-cover mb-4"
               />
+               <div className="mb-4 flex flex-wrap gap-1">
+                <Badge variant="skill">HTML</Badge>
+                <Badge variant="skill">CSS</Badge>
+                <Badge variant="skill">JavaScript</Badge>
+                <Badge variant="skill">Node.js</Badge>
+                <Badge variant="skill">React.js</Badge>
+              </div>
               <ul className="list-disc pl-6 space-y-2">
                 <li>
                   Developing a community app that focuses on embroidery
@@ -317,6 +363,11 @@ export default function Home() {
               </CardTitle>
             </CardHeader>
             <CardContent>
+            <div className="mb-4 flex flex-wrap gap-1">
+              <Badge variant="skill">Java</Badge>
+              <Badge variant="skill">XML</Badge>
+              <Badge variant="skill">Android Studio</Badge>
+            </div>
               {/* <Image
                 src="/path-to-beaconsafe-project-image.jpg"
                 alt="BeaconSafe Mobile Application"
@@ -345,6 +396,11 @@ export default function Home() {
               </CardTitle>
             </CardHeader>
             <CardContent>
+            <div className="mb-4 flex flex-wrap gap-1">
+              <Badge variant="skill">Java</Badge>
+              <Badge variant="skill">JSON</Badge>
+              <Badge variant="skill">Data Structures</Badge>
+            </div>
               {/* <Image
                 src="/path-to-jojoland-project-image.jpg"
                 alt="Virtual Development of JOJOLANDS"
@@ -377,15 +433,17 @@ export default function Home() {
           <CardContent className="pt-6">
             <ul className="list-disc pl-6 space-y-2">
               <li>
-                Programming League National 2024 - Logistic Committee,
+                <strong>Programming League National 2024</strong> - Logistic Committee,
                 competition
               </li>
               <li>
-                UM to UI (Universitas Indonesia) Short Course on Sustainable IT
-                2024 - Short Term Outbound Mobility Program
+                <strong> UM to UI (Universitas Indonesia) Short Course on Sustainable IT
+                2024</strong>
+                - Short Term Outbound Mobility Program
               </li>
               <li>
-                FCSIT Deans Cup 2023 - Contest Protocol Committee, competition
+                <strong>FCSIT Deans Cup 2023</strong>
+                 - Contest Protocol Committee, competition
               </li>
             </ul>
           </CardContent>
@@ -400,7 +458,7 @@ export default function Home() {
             <p>
               <strong>Shortlisted IPT Category</strong>
             </p>
-            <p>Rapid Bus X UTM Data Hackathon 2023</p>
+            <p>MyRapid Bus X UTM Data Hackathon 2023</p>
           </CardContent>
         </Card>
       </section>
@@ -410,10 +468,10 @@ export default function Home() {
         <h2 className="text-2xl font-bold md:text-3xl mb-4">Reference</h2>
         <Card>
           <CardHeader>
-            <CardTitle>Wan Muhammad Aqil bin Wan Harun</CardTitle>
+            <CardTitle className="mb-2 font-bold">Wan Muhammad Aqil bin Wan Harun</CardTitle>
           </CardHeader>
           <CardContent>
-            <p>Senior IT Business Analyst</p>
+            <strong>Senior IT Business Analyst</strong>
             <p>+6012081081</p>
             <p>whbaqil@gmail.com</p>
             <p className="mt-2">
