@@ -6,7 +6,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@/components/ui/badge";
 import { Github, Mail, Phone, Linkedin, Download } from "lucide-react";
 import Image from "next/image";
 
@@ -173,9 +173,9 @@ export default function Home() {
           <CardContent className="pt-6">
             <ul className="list-disc pl-6 space-y-2">
               <li>
-                <strong className="mr-2">Languages:</strong> 
-                  <Badge variant="skill">Malay (Native)</Badge>
-                  <Badge variant="skill">English (Professional)</Badge>
+                <strong className="mr-2">Languages:</strong>
+                <Badge variant="skill">Malay (Native)</Badge>
+                <Badge variant="skill">English (Professional)</Badge>
               </li>
               <li>
                 <strong className="mr-2">Programming Languages:</strong>
@@ -189,7 +189,7 @@ export default function Home() {
                 <Badge variant="skill">XML</Badge>
               </li>
               <li>
-                <strong className="mr-2">Software and Frameworks:</strong> 
+                <strong className="mr-2">Software and Frameworks:</strong>
                 <Badge variant="skill">VS Code</Badge>
                 <Badge variant="skill">Node.js</Badge>
                 <Badge variant="skill">React.js</Badge>
@@ -269,7 +269,7 @@ export default function Home() {
                 height={200}
                 className="rounded-lg object-cover mb-4"
               />
-               <div className="mb-4 flex flex-wrap gap-1">
+              <div className="mb-4 flex flex-wrap gap-1">
                 <Badge variant="skill">Vue.js</Badge>
                 <Badge variant="skill">TypeScript</Badge>
                 <Badge variant="skill">Node.js</Badge>
@@ -317,7 +317,7 @@ export default function Home() {
                 height={300}
                 className="rounded-lg object-cover mb-4"
               />
-               <div className="mb-4 flex flex-wrap gap-1">
+              <div className="mb-4 flex flex-wrap gap-1">
                 <Badge variant="skill">HTML</Badge>
                 <Badge variant="skill">CSS</Badge>
                 <Badge variant="skill">JavaScript</Badge>
@@ -363,11 +363,11 @@ export default function Home() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-            <div className="mb-4 flex flex-wrap gap-1">
-              <Badge variant="skill">Java</Badge>
-              <Badge variant="skill">XML</Badge>
-              <Badge variant="skill">Android Studio</Badge>
-            </div>
+              <div className="mb-4 flex flex-wrap gap-1">
+                <Badge variant="skill">Java</Badge>
+                <Badge variant="skill">XML</Badge>
+                <Badge variant="skill">Android Studio</Badge>
+              </div>
               {/* <Image
                 src="/path-to-beaconsafe-project-image.jpg"
                 alt="BeaconSafe Mobile Application"
@@ -396,11 +396,11 @@ export default function Home() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-            <div className="mb-4 flex flex-wrap gap-1">
-              <Badge variant="skill">Java</Badge>
-              <Badge variant="skill">JSON</Badge>
-              <Badge variant="skill">Data Structures</Badge>
-            </div>
+              <div className="mb-4 flex flex-wrap gap-1">
+                <Badge variant="skill">Java</Badge>
+                <Badge variant="skill">JSON</Badge>
+                <Badge variant="skill">Data Structures</Badge>
+              </div>
               {/* <Image
                 src="/path-to-jojoland-project-image.jpg"
                 alt="Virtual Development of JOJOLANDS"
@@ -433,17 +433,20 @@ export default function Home() {
           <CardContent className="pt-6">
             <ul className="list-disc pl-6 space-y-2">
               <li>
-                <strong>Programming League National 2024</strong> - Logistic Committee,
-                competition
+                <strong>Programming League National 2024</strong> - Logistic
+                Committee, competition
               </li>
               <li>
-                <strong> UM to UI (Universitas Indonesia) Short Course on Sustainable IT
-                2024</strong>
+                <strong>
+                  {" "}
+                  UM to UI (Universitas Indonesia) Short Course on Sustainable
+                  IT 2024
+                </strong>
                 - Short Term Outbound Mobility Program
               </li>
               <li>
-                <strong>FCSIT Deans Cup 2023</strong>
-                 - Contest Protocol Committee, competition
+                <strong>FCSIT Deans Cup 2023</strong>- Contest Protocol
+                Committee, competition
               </li>
             </ul>
           </CardContent>
@@ -468,7 +471,9 @@ export default function Home() {
         <h2 className="text-2xl font-bold md:text-3xl mb-4">Reference</h2>
         <Card>
           <CardHeader>
-            <CardTitle className="mb-2 font-bold">Wan Muhammad Aqil bin Wan Harun</CardTitle>
+            <CardTitle className="mb-2 font-bold">
+              Wan Muhammad Aqil bin Wan Harun
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <strong>Senior IT Business Analyst</strong>
