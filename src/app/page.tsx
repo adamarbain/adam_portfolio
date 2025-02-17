@@ -74,7 +74,7 @@ export default function Home() {
                 <TooltipTrigger asChild>
                   <Button variant="outline" size="icon" asChild>
                     <a
-                      href="https://www.linkedin.com/in/adamarbain"
+                      href="https://www.linkedin.com/in/adam-arbain/"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
