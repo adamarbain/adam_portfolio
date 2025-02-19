@@ -7,7 +7,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Badge } from "@/components/ui/badge";
-import { Github, Mail, Phone, Linkedin, Download } from "lucide-react";
+import { Github, Mail, Phone, Linkedin, Download, ExternalLink } from "lucide-react";
 import Image from "next/image";
 
 export default function Home() {
@@ -205,6 +205,8 @@ export default function Home() {
                 <Badge variant="skill">PostgreSQL</Badge>
                 <Badge variant="skill">DBeaver</Badge>
                 <Badge variant="skill">AWS S3</Badge>
+                <Badge variant="skill">Vercel</Badge>
+                <Badge variant="skill">Render</Badge>
               </li>
               <li>
                 <strong className="mr-2">Skills:</strong>
@@ -323,6 +325,8 @@ export default function Home() {
                 <Badge variant="skill">JavaScript</Badge>
                 <Badge variant="skill">Node.js</Badge>
                 <Badge variant="skill">React.js</Badge>
+                <Badge variant="skill">Vercel</Badge>
+                <Badge variant="skill">Render</Badge>
               </div>
               <ul className="list-disc pl-6 space-y-2">
                 <li>
@@ -347,12 +351,12 @@ export default function Home() {
                     View Source
                   </a>
                 </Button>
-                {/* <Button variant="outline" size="sm" asChild>
-              <a href="https://suduai-demo.com" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" size="sm" asChild>
+              <a href="https://stitch-mart-frontend.vercel.app/" target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="w-4 h-4 mr-2" />
                 Live Demo
               </a>
-            </Button> */}
+            </Button>
               </div>
             </CardContent>
           </Card>
