@@ -353,7 +353,7 @@ export default function Home() {
                   </a>
                 </Button>
                 <Button variant="outline" size="sm" asChild>
-              <a href="https://stitch-mart-frontend.vercel.app/" target="_blank" rel="noopener noreferrer">
+              <a href="https://stitchmart.vercel.app/" target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="w-4 h-4 mr-2" />
                 Live Demo
               </a>
