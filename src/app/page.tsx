@@ -327,6 +327,7 @@ export default function Home() {
                 <Badge variant="skill">React.js</Badge>
                 <Badge variant="skill">Vercel</Badge>
                 <Badge variant="skill">Render</Badge>
+                <Badge variant="skill">MongoDB</Badge>
               </div>
               <ul className="list-disc pl-6 space-y-2">
                 <li>
