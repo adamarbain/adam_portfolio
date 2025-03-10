@@ -16,6 +16,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 import Image from "next/image";
+import { Analytics } from '@vercel/analytics/next';
 
 export default function Home() {
   return (
@@ -575,6 +576,7 @@ export default function Home() {
           </CardContent>
         </Card>
       </section>
+      <Analytics />
     </div>
   );
 }
