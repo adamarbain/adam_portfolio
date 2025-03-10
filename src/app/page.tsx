@@ -237,7 +237,7 @@ export default function Home() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="mb-2">March 2025 – Current</p>
+              <p className="mb-2">March 2025 – Present</p>
               {/* <div className="mb-4 flex flex-wrap gap-1">
               <Badge variant="skill">Vue.js</Badge>
               <Badge variant="skill">TypeScript</Badge>
