@@ -7,7 +7,14 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Badge } from "@/components/ui/badge";
-import { Github, Mail, Phone, Linkedin, Download, ExternalLink } from "lucide-react";
+import {
+  Github,
+  Mail,
+  Phone,
+  Linkedin,
+  Download,
+  ExternalLink,
+} from "lucide-react";
 import Image from "next/image";
 
 export default function Home() {
@@ -125,7 +132,7 @@ export default function Home() {
               <p>
                 I am a third-year Software Engineering major at Universiti
                 Malaya, passionate about software development. I am currently
-                seeking a part-time opportunity in the Software Engineering
+                seeking a career opportunity in the Software Engineering
                 domain to apply my skills and gain hands-on experience while
                 continuing to broaden my knowledge in the IT industry.
               </p>
@@ -145,7 +152,7 @@ export default function Home() {
             <CardContent>
               <p>Bachelor of Computer Science (Software Engineering)</p>
               <p>2022-Present</p>
-              <p>CGPA: 3.41</p>
+              <p>CGPA: 3.49</p>
             </CardContent>
           </Card>
           <Card>
@@ -221,23 +228,24 @@ export default function Home() {
       {/* Experience Section */}
       <section id="experience" className="container">
         <h2 className="text-2xl font-bold md:text-3xl mb-4">Experience</h2>
-        <Card>
-          <CardHeader>
-            <CardTitle className="mb-2 font-bold">
-              Intern Full-Stack Web Developer at A Serious AI Sdn Bhd
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="mb-2">July 2024 – December 2024</p>
-            <div className="mb-4 flex flex-wrap gap-1">
+        <div className="space-y-4">
+          <Card>
+            <CardHeader>
+              <CardTitle className="mb-2 font-bold">
+                Intern Forthify Technologies
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="mb-2">March 2025 – Current</p>
+              {/* <div className="mb-4 flex flex-wrap gap-1">
               <Badge variant="skill">Vue.js</Badge>
               <Badge variant="skill">TypeScript</Badge>
               <Badge variant="skill">Node.js</Badge>
               <Badge variant="skill">Express</Badge>
               <Badge variant="skill">Prisma ORM</Badge>
               <Badge variant="skill">PostgreSQL</Badge>
-            </div>
-            <ul className="list-disc pl-6 space-y-2">
+            </div> */}
+              {/* <ul className="list-disc pl-6 space-y-2">
               <li>
                 Developing an Enterprise Resource Planning (ERP) project named
                 SuDUAI using Vue.js, TypeScript, Node.js, Express, Prisma ORM
@@ -248,15 +256,87 @@ export default function Home() {
                 sprint planning, retrospectives, and daily stand-ups to ensure
                 timely delivery of tasks.
               </li>
-            </ul>
-          </CardContent>
-        </Card>
+            </ul> */}
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle className="mb-2 font-bold">
+                Intern Full-Stack Web Developer at A Serious AI Sdn Bhd
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="mb-2">July 2024 – December 2024</p>
+              <div className="mb-4 flex flex-wrap gap-1">
+                <Badge variant="skill">Vue.js</Badge>
+                <Badge variant="skill">TypeScript</Badge>
+                <Badge variant="skill">Node.js</Badge>
+                <Badge variant="skill">Express</Badge>
+                <Badge variant="skill">Prisma ORM</Badge>
+                <Badge variant="skill">PostgreSQL</Badge>
+              </div>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>
+                  Developing an Enterprise Resource Planning (ERP) project named
+                  SuDUAI using Vue.js, TypeScript, Node.js, Express, Prisma ORM
+                  and PostgreSQL.
+                </li>
+                <li>
+                  Collaborated in agile Development environment, participating
+                  in sprint planning, retrospectives, and daily stand-ups to
+                  ensure timely delivery of tasks.
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+        </div>
       </section>
 
       {/* Projects Section */}
       <section id="projects" className="container">
         <h2 className="text-2xl font-bold md:text-3xl mb-4">Projects</h2>
         <div className="grid gap-6 md:grid-cols-2">
+          <Card>
+            <CardHeader>
+              <CardTitle className="mb-2 font-bold">
+                Yuran Pakatan (Individual Project)
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <Image
+                src="/yuran-pakatan.png"
+                alt="Yuran Pakatan"
+                width={400}
+                height={200}
+                className="rounded-lg object-cover mb-4"
+              />
+              <div className="mb-4 flex flex-wrap gap-1">
+                <Badge variant="skill">Vue.js</Badge>
+                <Badge variant="skill">Tailwind CSS</Badge>
+                <Badge variant="skill">Node.js</Badge>
+                <Badge variant="skill">Prisma ORM</Badge>
+                <Badge variant="skill">PostgreSQL</Badge>
+                <Badge variant="skill">Render</Badge>
+                <Badge variant="skill">Vercel</Badge>
+              </div>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>
+                  Developed a digital payment and membership management system
+                  using Vue.js, Node.js, Express, MySQL, and PrimeVue for
+                  seamless fee collection.
+                </li>
+                <li>
+                  Implemented role-based authentication to differentiate admin
+                  and user access, ensuring secure and restricted
+                  functionalities.
+                </li>
+                <li>
+                  Designed and optimized a responsive dashboard for real-time
+                  tracking of user payments and membership statuses.
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
           <Card>
             <CardHeader>
               <CardTitle className="mb-2 font-bold">
@@ -353,11 +433,15 @@ export default function Home() {
                   </a>
                 </Button>
                 <Button variant="outline" size="sm" asChild>
-              <a href="https://stitchmart.vercel.app/" target="_blank" rel="noopener noreferrer">
-                <ExternalLink className="w-4 h-4 mr-2" />
-                Live Demo
-              </a>
-            </Button>
+                  <a
+                    href="https://stitchmart.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    Live Demo
+                  </a>
+                </Button>
               </div>
             </CardContent>
           </Card>
