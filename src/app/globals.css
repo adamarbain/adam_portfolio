@@ -78,9 +78,28 @@
 }
 
 .light body {
-  background: linear-gradient(to bottom right, #83D475, #ABE098, #C5E8B7);
+  background: linear-gradient(to bottom right, #83d475, #abe098, #c5e8b7);
 }
 
 .dark body {
   background: linear-gradient(to bottom right, #003304, #006631, #009924);
+}
+
+/* Hide scrollbar for mobile card containers */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+/* Smooth scrolling for mobile cards */
+.snap-x {
+  scroll-snap-type: x mandatory;
+}
+
+.snap-center {
+  scroll-snap-align: center;
 }

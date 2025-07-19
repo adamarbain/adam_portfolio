@@ -1,36 +1,20 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { Badge } from "@/components/ui/badge";
-import {
-  Github,
-  Mail,
-  Phone,
-  Linkedin,
-  Download,
-  ExternalLink,
-} from "lucide-react";
-import Image from "next/image";
-import { Analytics } from '@vercel/analytics/next';
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { Badge } from "@/components/ui/badge"
+import { MobileCardContainer } from "@/components/ui/mobile-card-container"
+import { VisitorCounter } from "@/components/visitor-counter"
+import { Github, Mail, Phone, Linkedin, Download, ExternalLink } from "lucide-react"
+import Image from "next/image"
 
 export default function Home() {
   return (
     <div className="flex flex-col gap-16 pb-8">
       {/* Hero Section */}
-      <section
-        id="home"
-        className="container flex flex-col items-center justify-center gap-4 pt-16 md:pt-24"
-      >
+      <section id="home" className="container flex flex-col items-center justify-center gap-4 pt-16 md:pt-24">
         <div className="flex flex-col items-center gap-4 text-center">
-          <h1 className="text-3xl font-bold sm:text-4xl md:text-5xl lg:text-6xl">
-            Adam Bin Arbain
-          </h1>
-          <p className="max-w-[42rem] leading-normal sm:text-xl sm:leading-8">
+          <h1 className="text-3xl font-bold sm:text-4xl md:text-5xl lg:text-6xl">Adam Bin Arbain</h1>
+          <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
             Software Engineering student at Universiti Malaya
           </p>
           <TooltipProvider>
@@ -38,11 +22,7 @@ export default function Home() {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Button variant="outline" size="icon" asChild>
-                    <a
-                      href="https://github.com/adamarbain"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                    <a href="https://github.com/adamarbain" target="_blank" rel="noopener noreferrer">
                       <Github className="h-4 w-4" />
                       <span className="sr-only">GitHub</span>
                     </a>
@@ -81,11 +61,7 @@ export default function Home() {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Button variant="outline" size="icon" asChild>
-                    <a
-                      href="https://www.linkedin.com/in/adam-arbain/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                    <a href="https://www.linkedin.com/in/adam-arbain/" target="_blank" rel="noopener noreferrer">
                       <Linkedin className="h-4 w-4" />
                       <span className="sr-only">LinkedIn</span>
                     </a>
@@ -110,6 +86,11 @@ export default function Home() {
               </Tooltip>
             </div>
           </TooltipProvider>
+
+          {/* Visitor Counter */}
+          <div className="mt-4">
+            <VisitorCounter />
+          </div>
         </div>
       </section>
 
@@ -130,12 +111,10 @@ export default function Home() {
               />
             </div>
             <div className="md:w-2/3">
-              <p>
-                I am a third-year Software Engineering major at Universiti
-                Malaya, passionate about software development. I am currently
-                seeking a career opportunity in the Software Engineering
-                domain to apply my skills and gain hands-on experience while
-                continuing to broaden my knowledge in the IT industry.
+              <p className="text-muted-foreground">
+                I am a third-year Software Engineering major at Universiti Malaya, passionate about software
+                development. I am currently seeking a career opportunity in the Software Engineering domain to apply my
+                skills and gain hands-on experience while continuing to broaden my knowledge in the IT industry.
               </p>
             </div>
           </CardContent>
@@ -145,7 +124,7 @@ export default function Home() {
       {/* Education Section */}
       <section id="education" className="container">
         <h2 className="text-2xl font-bold md:text-3xl mb-4">Education</h2>
-        <div className="space-y-4">
+        <MobileCardContainer>
           <Card>
             <CardHeader>
               <CardTitle>University Malaya | Kuala Lumpur</CardTitle>
@@ -158,10 +137,7 @@ export default function Home() {
           </Card>
           <Card>
             <CardHeader>
-              <CardTitle>
-                Centre for Foundation Studies in Science, University Malaya |
-                Kuala Lumpur
-              </CardTitle>
+              <CardTitle>Centre for Foundation Studies in Science, University Malaya | Kuala Lumpur</CardTitle>
             </CardHeader>
             <CardContent>
               <p>Foundation of Physical Sciences</p>
@@ -169,59 +145,68 @@ export default function Home() {
               <p>CGPA: 3.66 (Muet: Band 4)</p>
             </CardContent>
           </Card>
-        </div>
+        </MobileCardContainer>
       </section>
 
       {/* Skills Section */}
       <section id="skills" className="container">
-        <h2 className="text-2xl font-bold md:text-3xl mb-4">
-          Languages and Skills
-        </h2>
+        <h2 className="text-2xl font-bold md:text-3xl mb-4">Languages and Skills</h2>
         <Card>
           <CardContent className="pt-6">
-            <ul className="list-disc pl-6 space-y-2">
-              <li>
-                <strong className="mr-2">Languages:</strong>
-                <Badge variant="skill">Malay (Native)</Badge>
-                <Badge variant="skill">English (Professional)</Badge>
-              </li>
-              <li>
-                <strong className="mr-2">Programming Languages:</strong>
-                <Badge variant="skill">Java</Badge>
-                <Badge variant="skill">HTML</Badge>
-                <Badge variant="skill">CSS</Badge>
-                <Badge variant="skill">JavaScript</Badge>
-                <Badge variant="skill">Python</Badge>
-                <Badge variant="skill">Assembly</Badge>
-                <Badge variant="skill">C#</Badge>
-                <Badge variant="skill">XML</Badge>
-              </li>
-              <li>
-                <strong className="mr-2">Software and Frameworks:</strong>
-                <Badge variant="skill">VS Code</Badge>
-                <Badge variant="skill">Node.js</Badge>
-                <Badge variant="skill">React.js</Badge>
-                <Badge variant="skill">MongoDB</Badge>
-                <Badge variant="skill">Android Studio</Badge>
-                <Badge variant="skill">SQL</Badge>
-                <Badge variant="skill">Oracle</Badge>
-                <Badge variant="skill">Packet Tracer</Badge>
-                <Badge variant="skill">Docker</Badge>
-                <Badge variant="skill">Prisma ORM</Badge>
-                <Badge variant="skill">Vue.js</Badge>
-                <Badge variant="skill">RESTful API</Badge>
-                <Badge variant="skill">PostgreSQL</Badge>
-                <Badge variant="skill">DBeaver</Badge>
-                <Badge variant="skill">AWS S3</Badge>
-                <Badge variant="skill">Vercel</Badge>
-                <Badge variant="skill">Render</Badge>
-              </li>
-              <li>
-                <strong className="mr-2">Skills:</strong>
-                <Badge variant="skill">CCNAv7 NetaCAD (Cisco)</Badge>
-                <Badge variant="skill">Software Modelling & SRS</Badge>
-              </li>
-            </ul>
+            <div className="space-y-6">
+              <div>
+                <h3 className="font-semibold mb-3">Languages</h3>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="skill">Malay (Native)</Badge>
+                  <Badge variant="skill">English (Professional)</Badge>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="font-semibold mb-3">Programming Languages</h3>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="skill">Java</Badge>
+                  <Badge variant="skill">HTML</Badge>
+                  <Badge variant="skill">CSS</Badge>
+                  <Badge variant="skill">JavaScript</Badge>
+                  <Badge variant="skill">Python</Badge>
+                  <Badge variant="skill">Assembly</Badge>
+                  <Badge variant="skill">C#</Badge>
+                  <Badge variant="skill">XML</Badge>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="font-semibold mb-3">Software and Frameworks</h3>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="skill">VS Code</Badge>
+                  <Badge variant="skill">Node.js</Badge>
+                  <Badge variant="skill">React.js</Badge>
+                  <Badge variant="skill">MongoDB</Badge>
+                  <Badge variant="skill">Android Studio</Badge>
+                  <Badge variant="skill">SQL</Badge>
+                  <Badge variant="skill">Oracle</Badge>
+                  <Badge variant="skill">Packet Tracer</Badge>
+                  <Badge variant="skill">Docker</Badge>
+                  <Badge variant="skill">Prisma ORM</Badge>
+                  <Badge variant="skill">Vue.js</Badge>
+                  <Badge variant="skill">RESTful API</Badge>
+                  <Badge variant="skill">PostgreSQL</Badge>
+                  <Badge variant="skill">DBeaver</Badge>
+                  <Badge variant="skill">AWS S3</Badge>
+                  <Badge variant="skill">Vercel</Badge>
+                  <Badge variant="skill">Render</Badge>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="font-semibold mb-3">Certifications</h3>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="skill">CCNAv7 NetaCAD (Cisco)</Badge>
+                  <Badge variant="skill">Software Modelling & SRS</Badge>
+                </div>
+              </div>
+            </div>
           </CardContent>
         </Card>
       </section>
@@ -229,42 +214,41 @@ export default function Home() {
       {/* Experience Section */}
       <section id="experience" className="container">
         <h2 className="text-2xl font-bold md:text-3xl mb-4">Experience</h2>
-        <div className="space-y-4">
+        <MobileCardContainer>
           <Card>
             <CardHeader>
-              <CardTitle className="mb-2 font-bold">
-                Intern Forthify Technologies
-              </CardTitle>
+              <CardTitle className="mb-2 font-bold">Intern Forthify Technologies</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="mb-2">March 2025 – Present</p>
-              {/* <div className="mb-4 flex flex-wrap gap-1">
-              <Badge variant="skill">Vue.js</Badge>
-              <Badge variant="skill">TypeScript</Badge>
-              <Badge variant="skill">Node.js</Badge>
-              <Badge variant="skill">Express</Badge>
-              <Badge variant="skill">Prisma ORM</Badge>
-              <Badge variant="skill">PostgreSQL</Badge>
-            </div> */}
-              {/* <ul className="list-disc pl-6 space-y-2">
-              <li>
-                Developing an Enterprise Resource Planning (ERP) project named
-                SuDUAI using Vue.js, TypeScript, Node.js, Express, Prisma ORM
-                and PostgreSQL.
-              </li>
-              <li>
-                Collaborated in agile Development environment, participating in
-                sprint planning, retrospectives, and daily stand-ups to ensure
-                timely delivery of tasks.
-              </li>
-            </ul> */}
+              <div className="mb-4 flex flex-wrap gap-1">
+                <Badge variant="skill">CI/CD</Badge>
+                <Badge variant="skill">Next.js</Badge>
+                <Badge variant="skill">.NET</Badge>
+                <Badge variant="skill">Web Development</Badge>
+                <Badge variant="skill">Framework Migration</Badge>
+              </div>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>
+                  Successfully migrated a complete website framework from WordPress to Next.js, improving performance, maintainability, and developer experience.
+                </li>
+                <li>
+                  Developed and deployed Imaginur, a comprehensive image compression web application using .NET backend and HTML frontend, accessible at{" "}
+                  <a 
+                    href="https://imaginur-image-compression.vercel.app/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-800 underline"
+                  >
+                    imaginur-image-compression.vercel.app
+                  </a>.
+                </li>
+              </ul>
             </CardContent>
           </Card>
           <Card>
             <CardHeader>
-              <CardTitle className="mb-2 font-bold">
-                Intern Full-Stack Web Developer at A Serious AI Sdn Bhd
-              </CardTitle>
+              <CardTitle className="mb-2 font-bold">Intern Full-Stack Web Developer at A Serious AI Sdn Bhd</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="mb-2">July 2024 – December 2024</p>
@@ -278,30 +262,26 @@ export default function Home() {
               </div>
               <ul className="list-disc pl-6 space-y-2">
                 <li>
-                  Developing an Enterprise Resource Planning (ERP) project named
-                  SuDUAI using Vue.js, TypeScript, Node.js, Express, Prisma ORM
-                  and PostgreSQL.
+                  Developing an Enterprise Resource Planning (ERP) project named SuDUAI using Vue.js, TypeScript,
+                  Node.js, Express, Prisma ORM and PostgreSQL.
                 </li>
                 <li>
-                  Collaborated in agile Development environment, participating
-                  in sprint planning, retrospectives, and daily stand-ups to
-                  ensure timely delivery of tasks.
+                  Collaborated in agile Development environment, participating in sprint planning, retrospectives, and
+                  daily stand-ups to ensure timely delivery of tasks.
                 </li>
               </ul>
             </CardContent>
           </Card>
-        </div>
+        </MobileCardContainer>
       </section>
 
       {/* Projects Section */}
       <section id="projects" className="container">
         <h2 className="text-2xl font-bold md:text-3xl mb-4">Projects</h2>
-        <div className="grid gap-6 md:grid-cols-2">
+        <MobileCardContainer className="md:grid-cols-1 lg:grid-cols-2">
           <Card>
             <CardHeader>
-              <CardTitle className="mb-2 font-bold">
-                Yuran Pakatan (Individual Project)
-              </CardTitle>
+              <CardTitle className="mb-2 font-bold">Yuran Pakatan (Individual Project)</CardTitle>
             </CardHeader>
             <CardContent>
               <Image
@@ -322,27 +302,23 @@ export default function Home() {
               </div>
               <ul className="list-disc pl-6 space-y-2">
                 <li>
-                  Developed a digital payment and membership management system
-                  using Vue.js, Node.js, Express, MySQL, and PrimeVue for
-                  seamless fee collection.
+                  Developed a digital payment and membership management system using Vue.js, Node.js, Express, MySQL,
+                  and PrimeVue for seamless fee collection.
                 </li>
                 <li>
-                  Implemented role-based authentication to differentiate admin
-                  and user access, ensuring secure and restricted
-                  functionalities.
+                  Implemented role-based authentication to differentiate admin and user access, ensuring secure and
+                  restricted functionalities.
                 </li>
                 <li>
-                  Designed and optimized a responsive dashboard for real-time
-                  tracking of user payments and membership statuses.
+                  Designed and optimized a responsive dashboard for real-time tracking of user payments and membership
+                  statuses.
                 </li>
               </ul>
             </CardContent>
           </Card>
           <Card>
             <CardHeader>
-              <CardTitle className="mb-2 font-bold">
-                SuduAI ERP Solutions (Company Project)
-              </CardTitle>
+              <CardTitle className="mb-2 font-bold">SuduAI ERP Solutions (Company Project)</CardTitle>
             </CardHeader>
             <CardContent>
               <Image
@@ -363,34 +339,24 @@ export default function Home() {
               </div>
               <ul className="list-disc pl-6 space-y-2">
                 <li>
-                  Contributed to the development of an Enterprise Resource
-                  Planning (ERP) system named SuDUAI, leveraging Vue.js,
-                  TypeScript, Node.js, Express, Prisma ORM, and PostgreSQL to
-                  build a robust and scalable platform.
+                  Contributed to the development of an Enterprise Resource Planning (ERP) system named SuDUAI,
+                  leveraging Vue.js, TypeScript, Node.js, Express, Prisma ORM, and PostgreSQL to build a robust and
+                  scalable platform.
                 </li>
                 <li>
-                  Implemented AWS S3 bucket services for file storage and
-                  retrieval across multiple modules, enhancing data management
-                  efficiency.
+                  Implemented AWS S3 bucket services for file storage and retrieval across multiple modules, enhancing
+                  data management efficiency.
                 </li>
                 <li>
-                  Worked on integrating third-party SQL systems (SQL Financial
-                  Accounting) to ensure seamless data synchronization and
-                  optimized system performance.
+                  Worked on integrating third-party SQL systems (SQL Financial Accounting) to ensure seamless data
+                  synchronization and optimized system performance.
                 </li>
               </ul>
             </CardContent>
           </Card>
           <Card>
             <CardHeader>
-              <CardTitle className="mb-2 font-bold">
-                <a
-                  href="https://github.com/yumdmb/stitch-mart"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                />
-                StitchMart Web Application (University Project)
-              </CardTitle>
+              <CardTitle className="mb-2 font-bold">StitchMart Web Application (University Project)</CardTitle>
             </CardHeader>
             <CardContent>
               <Image
@@ -412,33 +378,22 @@ export default function Home() {
               </div>
               <ul className="list-disc pl-6 space-y-2">
                 <li>
-                  Developing a community app that focuses on embroidery
-                  businesses, offering a range of features to streamline
-                  operations and enhance customer engagement using HTML, CSS,
-                  JS, NodeJS, ReactJS.
+                  Developing a community app that focuses on embroidery businesses, offering a range of features to
+                  streamline operations and enhance customer engagement using HTML, CSS, JS, NodeJS, ReactJS.
                 </li>
                 <li>
-                  This project was submitted as my final group assignment for
-                  the Web Programming Class in July 2024.
+                  This project was submitted as my final group assignment for the Web Programming Class in July 2024.
                 </li>
               </ul>
               <div className="flex gap-2 mt-4">
                 <Button variant="outline" size="sm" asChild>
-                  <a
-                    href="https://github.com/yumdmb/stitch-mart"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a href="https://github.com/yumdmb/stitch-mart" target="_blank" rel="noopener noreferrer">
                     <Github className="w-4 h-4 mr-2" />
                     View Source
                   </a>
                 </Button>
                 <Button variant="outline" size="sm" asChild>
-                  <a
-                    href="https://stitchmart.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a href="https://stitchmart.vercel.app/" target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="w-4 h-4 mr-2" />
                     Live Demo
                   </a>
@@ -448,9 +403,7 @@ export default function Home() {
           </Card>
           <Card>
             <CardHeader>
-              <CardTitle className="mb-2 font-bold">
-                BeaconSafe Mobile Application (University Project)
-              </CardTitle>
+              <CardTitle className="mb-2 font-bold">BeaconSafe Mobile Application (University Project)</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="mb-4 flex flex-wrap gap-1">
@@ -458,32 +411,21 @@ export default function Home() {
                 <Badge variant="skill">XML</Badge>
                 <Badge variant="skill">Android Studio</Badge>
               </div>
-              {/* <Image
-                src="/path-to-beaconsafe-project-image.jpg"
-                alt="BeaconSafe Mobile Application"
-                width={400}
-                height={200}
-                className="rounded-lg object-cover mb-4"
-              /> */}
               <ul className="list-disc pl-6 space-y-2">
                 <li>
-                  An application that provides comprehensive support and
-                  resources for child abuse victims while actively working to
-                  prevent child abuse using Android Studio involving coding in
-                  Java and XML.
+                  An application that provides comprehensive support and resources for child abuse victims while
+                  actively working to prevent child abuse using Android Studio involving coding in Java and XML.
                 </li>
                 <li>
-                  This project was being submitted as my final group assignment
-                  for Mobile Application Development class.
+                  This project was being submitted as my final group assignment for Mobile Application Development
+                  class.
                 </li>
               </ul>
             </CardContent>
           </Card>
           <Card>
             <CardHeader>
-              <CardTitle className="mb-2 font-bold">
-                Virtual Development of JOJOLANDS (University Project)
-              </CardTitle>
+              <CardTitle className="mb-2 font-bold">Virtual Development of JOJOLANDS (University Project)</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="mb-4 flex flex-wrap gap-1">
@@ -491,69 +433,81 @@ export default function Home() {
                 <Badge variant="skill">JSON</Badge>
                 <Badge variant="skill">Data Structures</Badge>
               </div>
-              {/* <Image
-                src="/path-to-jojoland-project-image.jpg"
-                alt="Virtual Development of JOJOLANDS"
-                width={400}
-                height={200}
-                className="rounded-lg object-cover mb-4"
-              /> */}
               <ul className="list-disc pl-6 space-y-2">
                 <li>
-                  Collaborated in a team to design and implement JOJOLands, a
-                  complex virtual environment modeled as a sub-tropical island
-                  using advanced data structures.
+                  Collaborated in a team to design and implement JOJOLands, a complex virtual environment modeled as a
+                  sub-tropical island using advanced data structures.
                 </li>
                 <li>
-                  Used Java, HashMaps, ArrayLists, LinkedLists, Graphs
-                  (Adjacency Lists), JSON for data handling and storage.
+                  Used Java, HashMaps, ArrayLists, LinkedLists, Graphs (Adjacency Lists), JSON for data handling and
+                  storage.
                 </li>
               </ul>
             </CardContent>
           </Card>
-        </div>
+        </MobileCardContainer>
       </section>
 
       {/* Extracurriculars Section */}
       <section id="extracurriculars" className="container">
-        <h2 className="text-2xl font-bold md:text-3xl mb-4">
-          Extracurriculars
-        </h2>
+        <h2 className="text-2xl font-bold md:text-3xl mb-4">Extracurriculars</h2>
         <Card>
           <CardContent className="pt-6">
             <ul className="list-disc pl-6 space-y-2">
               <li>
-                <strong>Programming League National 2024</strong> - Logistic
-                Committee, competition
-              </li>
-              <li>
                 <strong>
-                  {" "}
-                  UM to UI (Universitas Indonesia) Short Course on Sustainable
-                  IT 2024
-                </strong>
-                - Short Term Outbound Mobility Program
+                  SUSTAINABLE ENERGY AND GREEN TECHNOLOGY APPLICATIONS (SEGTA) 2025, Universitas Airlangga
+                </strong>{" "}
+                - Participant, Short Term Outbound Mobility Program
               </li>
               <li>
-                <strong>FCSIT Deans Cup 2023</strong>- Contest Protocol
-                Committee, competition
+                <strong>Global Learning & Overseas Bound Experience (GLOBE@UM) Programme</strong> - Fascilitator, Short
+                Term Outbound Mobility Program
+              </li>
+              <li>
+                <strong>Programming League National 2024</strong> - Logistic Committee, competition
+              </li>
+              <li>
+                <strong>UM to UI (Universitas Indonesia) Short Course on Sustainable IT 2024</strong> - Short Term
+                Outbound Mobility Program
+              </li>
+              <li>
+                <strong>FCSIT Deans Cup 2023</strong> - Contest Protocol Committee, competition
               </li>
             </ul>
           </CardContent>
         </Card>
       </section>
 
-      {/* Achievements Section */}
+      {/* Achievements Section - Now with horizontal swiping */}
       <section id="achievements" className="container">
         <h2 className="text-2xl font-bold md:text-3xl mb-4">Achievements</h2>
-        <Card>
-          <CardContent className="pt-6">
-            <p>
-              <strong>Shortlisted IPT Category</strong>
-            </p>
-            <p>MyRapid Bus X UTM Data Hackathon 2023</p>
-          </CardContent>
-        </Card>
+        <MobileCardContainer>
+          <Card>
+            <CardContent className="pt-6">
+              <p>
+                <strong>Preliminary Round</strong>
+              </p>
+              <p>PayHack 2025</p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent className="pt-6">
+              <p>
+                <strong>Preliminary Round</strong>
+              </p>
+              <p>UMHackathon 2025</p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent className="pt-6">
+              <p>
+                <strong>Shortlisted Top 10 IPT Category</strong>
+              </p>
+              <p>MyRapid Bus X UTM Data Hackathon 2023</p>
+            </CardContent>
+          </Card>
+        </MobileCardContainer>
       </section>
 
       {/* Reference Section */}
@@ -561,22 +515,20 @@ export default function Home() {
         <h2 className="text-2xl font-bold md:text-3xl mb-4">Reference</h2>
         <Card>
           <CardHeader>
-            <CardTitle className="mb-2 font-bold">
-              Wan Muhammad Aqil bin Wan Harun
-            </CardTitle>
+            <CardTitle className="mb-2 font-bold">Wan Muhammad Aqil bin Wan Harun</CardTitle>
           </CardHeader>
           <CardContent>
-            <strong>Senior IT Business Analyst</strong>
+            <p>
+              <strong>Senior IT Business Analyst</strong>
+            </p>
             <p>+6012081081</p>
             <p>whbaqil@gmail.com</p>
             <p className="mt-2">
-              Wan Muhammad Aqil was my former Business Analyst in A Serious AI
-              Sdn Bhd from July 2024 to December 2024
+              Wan Muhammad Aqil was my former Business Analyst in A Serious AI Sdn Bhd from July 2024 to December 2024
             </p>
           </CardContent>
         </Card>
       </section>
-      <Analytics />
     </div>
-  );
+  )
 }
