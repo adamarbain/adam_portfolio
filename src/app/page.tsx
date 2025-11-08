@@ -144,7 +144,7 @@ export default function Home() {
             <CardContent>
               <p>Bachelor of Computer Science (Software Engineering)</p>
               <p>2022-Present</p>
-              <p>CGPA: 3.49</p>
+              <p>CGPA: 3.54</p>
               <ul className="list-disc pl-6 mt-4 space-y-2">
                 <li>Consistently maintained strong academic performance while actively participating in multiple hackathons and technical projects</li>
                 <li>Completed advanced coursework in Software Architecture and Design, Software Testing and Quality Assurance, Mobile Web Development, and Software Project Management</li>
