@@ -313,20 +313,20 @@ export default function Home() {
               <CardTitle className="mb-2 font-bold">Drone4Dengue Admin Web and DengueEye Mobile App (Final Year Project)</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="mb-4 grid grid-cols-1 md:grid-cols-3 gap-4">
                 <Image
                   src="/drone4dengueAdmin.png"
                   alt="Drone4Dengue Admin Website"
                   width={400}
                   height={200}
-                  className="rounded-lg object-cover w-full"
+                  className="rounded-lg object-cover w-full md:col-span-2"
                 />
                 <Image
                   src="/dengueEyeMobileApp.png"
                   alt="DengueEye Mobile App"
-                  width={400}
+                  width={200}
                   height={200}
-                  className="rounded-lg object-cover w-full"
+                  className="rounded-lg object-cover w-full max-w-[200px] mx-auto md:mx-0 border border-black"
                 />
               </div>
               <div className="mb-4 flex flex-wrap gap-1">
