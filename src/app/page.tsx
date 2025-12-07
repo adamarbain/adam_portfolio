@@ -120,7 +120,7 @@ export default function Home() {
                 With <strong>over 2 years of hands-on development experience</strong>, I&apos;ve successfully delivered <strong>5+ production-ready applications </strong> 
                 and contributed to enterprise-level systems. My expertise spans full-stack development, cloud deployment, and 
                 database optimization. I specialize in modern web technologies including Vue.js, React.js, Node.js, and PostgreSQL, 
-                with a proven track record of <strong>improving application performance by 40%+</strong> and <strong>reducing deployment time by 60%</strong> through 
+                with a proven track record of <strong>improving application performance by 40%+</strong> and <strong>reducing deployment time by 20%</strong> through 
                 CI/CD implementation.
               </p>
               <p className="mt-4">
@@ -250,7 +250,10 @@ export default function Home() {
               </div>
               <ul className="list-disc pl-6 space-y-2">
                 <li>
-                  Successfully migrated a complete website framework from WordPress to Next.js, achieving <strong>50% faster page load times</strong> and <strong>30% reduction in maintenance costs</strong> while improving developer experience and code maintainability.
+                  Currently involved in a AI Chatbot project that use <strong>Langchain, OpenAI, Gemini, and MongoDB Query Tool</strong> to answer questions about the company and its products. This project is still in progress.
+                </li>
+                <li>
+                  Successfully migrated a complete website framework from WordPress to Next.js, achieving <strong>50% faster page load times</strong> and <strong>20% reduction in maintenance costs</strong> while improving developer experience and code maintainability.
                 </li>
                 <li>
                   Developed and deployed Imaginur, a comprehensive image compression web application using .NET backend and HTML frontend, processing <strong>10,000+ images</strong> and reducing file sizes by <strong>up to 80%</strong> while maintaining quality. Accessible at{" "}
@@ -264,7 +267,7 @@ export default function Home() {
                   </a>.
                 </li>
                 <li>
-                  Implemented CI/CD pipelines that reduced deployment time by <strong>60%</strong> and improved team productivity by enabling <strong>5x faster iteration cycles</strong>.
+                  Implemented CI/CD pipelines that reduced deployment time by <strong>20%</strong> and improved team productivity by enabling <strong>2x faster iteration cycles</strong>.
                 </li>
               </ul>
             </CardContent>
@@ -289,11 +292,11 @@ export default function Home() {
                   Node.js, Express, Prisma ORM and PostgreSQL.
                 </li>
                 <li>
-                  Implemented AWS S3 integration for file storage, handling <strong>50,000+ documents</strong> and achieving <strong>99.9% uptime</strong> while reducing storage costs by <strong>35%</strong> compared to traditional solutions.
+                  Implemented AWS S3 integration for file storage, handling <strong>1000+ documents</strong> and achieving <strong>90% uptime</strong> while reducing storage costs by <strong>35%</strong> compared to traditional solutions.
                 </li>
                 <li>
                   Collaborated in agile development environment, participating in sprint planning, retrospectives, and
-                  daily stand-ups, consistently delivering <strong>95% of sprint commitments</strong> and reducing bug reports by <strong>30%</strong> through improved code quality practices.
+                  daily stand-ups, consistently delivering <strong>90% of sprint commitments</strong> and reducing bug reports by <strong>20%</strong> through improved code quality practices.
                 </li>
               </ul>
             </CardContent>
@@ -305,6 +308,57 @@ export default function Home() {
       <section id="projects" className="container">
         <h2 className="text-2xl font-bold md:text-3xl mb-4">Projects</h2>
         <MobileCardContainer className="md:grid-cols-1 lg:grid-cols-2">  
+          <Card>
+            <CardHeader>
+              <CardTitle className="mb-2 font-bold">Drone4Dengue Admin Web and DengueEye Mobile App (Final Year Project)</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <Image
+                  src="/drone4dengueAdmin.png"
+                  alt="Drone4Dengue Admin Website"
+                  width={400}
+                  height={200}
+                  className="rounded-lg object-cover w-full"
+                />
+                <Image
+                  src="/dengueEyeMobileApp.png"
+                  alt="DengueEye Mobile App"
+                  width={400}
+                  height={200}
+                  className="rounded-lg object-cover w-full"
+                />
+              </div>
+              <div className="mb-4 flex flex-wrap gap-1">
+                <Badge variant="skill">Next.js</Badge>
+                <Badge variant="skill">Node.js</Badge>
+                <Badge variant="skill">Python</Badge>
+                <Badge variant="skill">Firebase</Badge>
+                <Badge variant="skill">TensorFlow</Badge>
+                <Badge variant="skill">React Native</Badge>
+                <Badge variant="skill">Flask</Badge>
+                <Badge variant="skill">YOLOv8</Badge>
+                <Badge variant="skill">Firebase Storage</Badge>
+                <Badge variant="skill">GeoCode API</Badge>
+                <Badge variant="skill">AI/ML</Badge>
+                <Badge variant="skill">Image Processing</Badge>
+                <Badge variant="skill">Roboflow</Badge>
+                <Badge variant="skill">Vercel</Badge>
+                <Badge variant="skill">Render</Badge>
+              </div>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>
+                  Designed and implemented an AI-powered system that integrates drone imagery, machine learning, and meteorological data to detect mosquito breeding sites and forecast dengue outbreak risks with <strong>over 85% prediction accuracy</strong>.
+                </li>
+                <li>
+                  Built a cross-platform solution using <strong>NextJs, NodeJs, Python, Firebase, TensorFlow, and React Native,</strong> featuring automated image analysis and real-time risk mapping for public health monitoring.
+                </li>
+                <li>
+                  Integrated tools such as <strong>Flask, YOLOv8, Firebase Storage, and GeoCode API,</strong> enabling seamless data visualization and cloud-based drone image management.
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
         <Card>
             <CardHeader>
               <CardTitle className="mb-2 font-bold">Imaginur - AI-Powered Image Compression Tool (Company Project)</CardTitle>
@@ -328,13 +382,13 @@ export default function Home() {
               </div>
               <ul className="list-disc pl-6 space-y-2">
                 <li>
-                  Developed a comprehensive image compression web application that processes <strong>10,000+ images</strong> and reduces file sizes by <strong>up to 80%</strong> while maintaining visual quality through advanced compression algorithms.
+                  Developed a comprehensive image compression web application that processes <strong>1000+ images</strong> and reduces file sizes by <strong>up to 80%</strong> while maintaining visual quality through advanced compression algorithms.
                 </li>
                 <li>
-                  Implemented intelligent image analysis using AI-powered quality assessment, achieving <strong>95% user satisfaction</strong> and reducing storage costs by <strong>60%</strong> for users handling large image collections.
+                  Implemented intelligent image analysis using AI-powered quality assessment, achieving <strong>70% user satisfaction</strong> and reducing storage costs by <strong>60%</strong> for users handling large image collections.
                 </li>
                 <li>
-                  Built with .NET backend and responsive HTML/CSS frontend, deployed on Vercel with <strong>99.9% uptime</strong>.
+                  Built with .NET backend and responsive HTML/CSS frontend, deployed on Vercel with <strong>90% uptime</strong>.
                 </li>
               </ul>
               <div className="flex gap-2 mt-4">
@@ -408,7 +462,7 @@ export default function Home() {
                   Contributed to the development of SuDUAI ERP system, managing <strong>15+ modules</strong> and <strong>100+ database tables</strong>, resulting in <strong>60% faster data retrieval</strong> and <strong>50% reduction in system downtime</strong>.
                 </li>
                 <li>
-                  Implemented AWS S3 bucket services handling <strong>100GB+ of data</strong> across multiple modules, achieving <strong>99.9% availability</strong> and reducing storage costs by <strong>40%</strong> through intelligent data lifecycle management.
+                  Implemented AWS S3 bucket services handling <strong>10GB+ of data</strong> across multiple modules, achieving <strong>90% availability</strong> and reducing storage costs by <strong>40%</strong> through intelligent data lifecycle management.
                 </li>
                 <li>
                   Integrated third-party SQL Financial Accounting systems, enabling <strong>real-time data synchronization</strong> across <strong> external systems</strong> and reducing manual data entry by <strong>80%</strong> while maintaining data integrity.
@@ -520,6 +574,15 @@ export default function Home() {
       <section id="extracurriculars" className="container">
         <h2 className="text-2xl font-bold md:text-3xl mb-4">Extracurriculars</h2>
         <MobileCardContainer>
+          <Card>
+            <CardContent className="pt-6">
+              <h3 className="font-semibold mb-3">PSU-UM COM SCI Reciprocal Mobility Program 2025, Hatyai</h3>
+              <p className="text-sm text-muted-foreground mb-2">Faculty of Science, Prince of Songkla University</p>
+              <p className="text-sm">
+                Selected as one of <strong>20 students</strong> to join this mobility program. Collaborated with students from Prince of Songkla University on completing short modules on computer science.
+              </p>
+            </CardContent>
+          </Card>
           <Card>
             <CardContent className="pt-6">
               <h3 className="font-semibold mb-3">Research Mobility Network, UNRAM Lombok</h3>
