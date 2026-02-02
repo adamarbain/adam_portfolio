@@ -1,11 +1,149 @@
+"use client"
+
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { Badge } from "@/components/ui/badge"
 import { MobileCardContainer } from "@/components/ui/mobile-card-container"
 import { VisitorCounter } from "@/components/visitor-counter"
-import { Github, Mail, Phone, Linkedin, Download, ExternalLink } from "lucide-react"
+import { Github, Mail, Phone, Linkedin, FileText , ExternalLink, Apple } from "lucide-react"
 import Image from "next/image"
+
+function AboutMeContent() {
+  const [isExpanded, setIsExpanded] = useState(false)
+
+  return (
+    <div className="md:w-2/3">
+      <p>
+        <strong>Recent Software Engineering graduate</strong> from Universiti Malaya, passionate about building 
+        impactful software solutions. I am currently <strong>maintaining and preparing Drone4Dengue for production</strong> 
+        - an innovative system that leverages drone technology and machine learning to <strong>scan potential dengue 
+        hotspots</strong>, with the goal of reducing dengue cases by <strong>30%</strong> in urban areas.
+      </p>
+      
+      {/* Show on desktop or when expanded on mobile */}
+      <div className={`${isExpanded ? 'block' : 'hidden'} md:block`}>
+        <p className="mt-4">
+          Throughout my academic journey and project work, I&apos;ve built a strong foundation in <strong>full-stack 
+          development</strong>, working with modern technologies including <strong>Vue.js, React.js, Node.js, and PostgreSQL</strong>. 
+          I&apos;ve successfully designed, developed, and deployed functional web applications, with hands-on experience in 
+          <strong> cloud deployment, database optimization, and CI/CD practices</strong>. My work on Drone4Dengue has given 
+          me valuable experience in <strong>system maintenance, production readiness, and real-world application deployment</strong>.
+        </p>
+        <p className="mt-4">
+          Actively participate in <strong>hackathons</strong> where I&apos;ve achieved <strong>top 10 placements</strong>, 
+          collaborating with teams to build solutions under tight deadlines. I&apos;m eager to bring my technical skills, 
+          <strong>problem-solving abilities, and passion for creating meaningful impact</strong> to a professional software 
+          engineering role where I can continue learning and contributing to innovative projects.
+        </p>
+      </div>
+
+      {/* Read More button - only visible on mobile */}
+      <button
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="md:hidden mt-3 text-primary font-medium"
+      >
+        {isExpanded ? (
+          'Read Less'
+        ) : (
+          <span className="underline">Read More</span>
+        )}
+      </button>
+    </div>
+  )
+}
+
+function ProjectImageCarousel() {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const scrollContainerRef = { current: null as HTMLDivElement | null }
+
+  const images = [
+    {
+      src: "/drone4dengueAdmin.png",
+      alt: "Drone4Dengue Admin Website",
+      width: 800,
+      height: 400,
+      isMobile: false
+    },
+    {
+      src: "/dengueEyeMobileApp.png",
+      alt: "DengueEye Mobile App",
+      width: 200,
+      height: 400,
+      isMobile: true
+    },
+    {
+      src: "/predictionAccuracy.png",
+      alt: "Drone4Dengue Prediction Accuracy",
+      width: 800,
+      height: 400,
+      isMobile: false
+    },
+    {
+      src: "/dengueEyeMobile.png",
+      alt: "DengueEye Mobile App Dengue Cases",
+      width: 200,
+      height: 400,
+      isMobile: true
+    }
+  ]
+
+  const handleScroll = () => {
+    if (scrollContainerRef.current) {
+      const { scrollLeft, clientWidth } = scrollContainerRef.current
+      const newIndex = Math.round(scrollLeft / clientWidth)
+      setCurrentIndex(newIndex)
+    }
+  }
+
+  return (
+    <div>
+      <div
+        ref={(el) => { scrollContainerRef.current = el }}
+        onScroll={handleScroll}
+        className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4"
+      >
+        {images.map((image, index) => (
+          <div key={index} className="flex-none w-full snap-center flex items-center justify-center min-h-[300px] px-2">
+            <Image
+              src={image.src}
+              alt={image.alt}
+              width={image.width}
+              height={image.height}
+              className={`rounded-lg object-contain ${
+                image.isMobile 
+                  ? 'w-auto h-auto max-h-[350px] md:max-h-[450px] border border-black' 
+                  : 'w-full h-auto max-w-full'
+              }`}
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Dot indicators */}
+      <div className="flex justify-center gap-2 mt-2">
+        {images.map((_, index) => (
+          <button
+            key={index}
+            className={`w-2 h-2 rounded-full transition-colors ${
+              index === currentIndex ? 'bg-primary' : 'bg-muted-foreground/30'
+            }`}
+            onClick={() => {
+              if (scrollContainerRef.current) {
+                scrollContainerRef.current.scrollTo({
+                  left: index * scrollContainerRef.current.clientWidth,
+                  behavior: 'smooth'
+                })
+              }
+            }}
+            aria-label={`Go to image ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
 
 export default function Home() {
   return (
@@ -75,7 +213,7 @@ export default function Home() {
                 <TooltipTrigger asChild>
                   <Button variant="outline" size="icon" asChild>
                     <a href="/Adam-bin-Arbain-Resume.pdf" download>
-                      <Download className="h-4 w-4" />
+                      <FileText  className="h-4 w-4" />
                       <span className="sr-only">Download Resume</span>
                     </a>
                   </Button>
@@ -110,25 +248,7 @@ export default function Home() {
                 className="rounded-lg object-cover"
               />
             </div>
-            <div className="md:w-2/3">
-              <p>
-                I am a <strong>final-year Software Engineering major</strong> at Universiti Malaya, passionate about software
-                development. I am currently working on <strong>Drone4Dengue</strong>, an innovative final year project that leverages drone technology 
-                and machine learning to <strong>scan potential dengue hotspots</strong>, aiming to reduce dengue cases by <strong>30%</strong> in urban areas.
-              </p>
-              <p className="mt-4">
-                With <strong>over 2 years of hands-on development experience</strong>, I&apos;ve successfully delivered <strong>5+ production-ready applications </strong> 
-                and contributed to enterprise-level systems. My expertise spans full-stack development, cloud deployment, and 
-                database optimization. I specialize in modern web technologies including Vue.js, React.js, Node.js, and PostgreSQL, 
-                with a proven track record of <strong>improving application performance by 40%+</strong> and <strong>reducing deployment time by 20%</strong> through 
-                CI/CD implementation.
-              </p>
-              <p className="mt-4">
-                Beyond coding, I <strong>lead technical initiatives</strong>, <strong>mentor intern developers</strong>, and actively participate in hackathons 
-                where I&apos;ve achieved <strong>top 10 placements</strong>. I&apos;m passionate about creating user-centric solutions that drive business 
-                value and enhance user experiences, particularly in projects that can make a positive social impact.
-              </p>
-            </div>
+            <AboutMeContent />
           </CardContent>
         </Card>
       </section>
@@ -143,7 +263,7 @@ export default function Home() {
             </CardHeader>
             <CardContent>
               <p>Bachelor of Computer Science (Software Engineering)</p>
-              <p>2022-Present</p>
+              <p>October 2022 - February 2026</p>
               <p>CGPA: 3.54</p>
               <ul className="list-disc pl-6 mt-4 space-y-2">
                 <li>Consistently maintained strong academic performance while actively participating in multiple hackathons and technical projects</li>
@@ -157,7 +277,7 @@ export default function Home() {
             </CardHeader>
             <CardContent>
               <p>Foundation of Physical Sciences</p>
-              <p>2021-2022</p>
+              <p>August 2021- May 2022</p>
               <p>CGPA: 3.66 (Muet: Band 4)</p>
               <ul className="list-disc pl-6 mt-4 space-y-2">
                 <li>Developed strong analytical and problem-solving skills through intensive science and mathematics courses</li>
@@ -170,65 +290,149 @@ export default function Home() {
 
       {/* Skills Section */}
       <section id="skills" className="container">
-        <h2 className="text-2xl font-bold md:text-3xl mb-4">Languages and Skills</h2>
-        <Card>
-          <CardContent className="pt-6">
-            <div className="space-y-6">
-              <div>
-                <h3 className="font-semibold mb-3">Languages</h3>
-                <div className="flex flex-wrap gap-2">
-                  <Badge variant="skill">Malay (Native)</Badge>
-                  <Badge variant="skill">English (Professional)</Badge>
-                </div>
+        <h2 className="text-2xl font-bold md:text-3xl mb-4">Skills and Languages</h2>
+        <MobileCardContainer className="md:grid-cols-2 lg:grid-cols-3">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">Programming Languages</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="skill">Java</Badge>
+                <Badge variant="skill">Python</Badge>
+                <Badge variant="skill">JavaScript/TypeScript</Badge>
+                <Badge variant="skill">C#</Badge>
+                <Badge variant="skill">HTML/CSS</Badge>
+                <Badge variant="skill">SQL</Badge>
+                <Badge variant="skill">XML</Badge>
               </div>
+            </CardContent>
+          </Card>
 
-              <div>
-                <h3 className="font-semibold mb-3">Programming Languages</h3>
-                <div className="flex flex-wrap gap-2">
-                  <Badge variant="skill">Java</Badge>
-                  <Badge variant="skill">HTML</Badge>
-                  <Badge variant="skill">CSS</Badge>
-                  <Badge variant="skill">JavaScript</Badge>
-                  <Badge variant="skill">Python</Badge>
-                  <Badge variant="skill">Assembly</Badge>
-                  <Badge variant="skill">C#</Badge>
-                  <Badge variant="skill">XML</Badge>
-                </div>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">Frontend</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="skill">React.js</Badge>
+                <Badge variant="skill">Next.js</Badge>
+                <Badge variant="skill">Vue.js</Badge>
+                <Badge variant="skill">React Native</Badge>
+                <Badge variant="skill">Tailwind CSS</Badge>
               </div>
+            </CardContent>
+          </Card>
 
-              <div>
-                <h3 className="font-semibold mb-3">Software and Frameworks</h3>
-                <div className="flex flex-wrap gap-2">
-                  <Badge variant="skill">VS Code</Badge>
-                  <Badge variant="skill">Node.js</Badge>
-                  <Badge variant="skill">React.js</Badge>
-                  <Badge variant="skill">MongoDB</Badge>
-                  <Badge variant="skill">Android Studio</Badge>
-                  <Badge variant="skill">SQL</Badge>
-                  <Badge variant="skill">Oracle</Badge>
-                  <Badge variant="skill">Packet Tracer</Badge>
-                  <Badge variant="skill">Docker</Badge>
-                  <Badge variant="skill">Prisma ORM</Badge>
-                  <Badge variant="skill">Vue.js</Badge>
-                  <Badge variant="skill">RESTful API</Badge>
-                  <Badge variant="skill">PostgreSQL</Badge>
-                  <Badge variant="skill">DBeaver</Badge>
-                  <Badge variant="skill">AWS S3</Badge>
-                  <Badge variant="skill">Vercel</Badge>
-                  <Badge variant="skill">Render</Badge>
-                </div>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">Backend & Tools</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="skill">Node.js</Badge>
+                <Badge variant="skill">Express</Badge>
+                <Badge variant="skill">Flask</Badge>
+                <Badge variant="skill">.NET</Badge>
+                <Badge variant="skill">Prisma ORM</Badge>
+                <Badge variant="skill">YAML</Badge>
               </div>
+            </CardContent>
+          </Card>
 
-              <div>
-                <h3 className="font-semibold mb-3">Certifications</h3>
-                <div className="flex flex-wrap gap-2">
-                  <Badge variant="skill">CCNAv7 NetaCAD (Cisco)</Badge>
-                  <Badge variant="skill">Software Modelling & SRS</Badge>
-                </div>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">Mobile Development</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="skill">Android Studio</Badge>
+                <Badge variant="skill">Expo</Badge>
+                <Badge variant="skill">Expo EAS</Badge>
               </div>
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">AI & Machine Learning</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="skill">TensorFlow</Badge>
+                <Badge variant="skill">YOLOv8</Badge>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">Deployment & Hosting</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="skill">Vercel</Badge>
+                <Badge variant="skill">Render</Badge>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">Cloud & DevOps</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="skill">AWS S3</Badge>
+                <Badge variant="skill">Google Cloud Platform (GCP)</Badge>
+                <Badge variant="skill">Firebase</Badge>
+                <Badge variant="skill">Docker</Badge>
+                <Badge variant="skill">Git</Badge>
+                <Badge variant="skill">GitHub Actions</Badge>
+                <Badge variant="skill">CI/CD</Badge>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">Databases</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="skill">PostgreSQL</Badge>
+                <Badge variant="skill">MongoDB</Badge>
+                <Badge variant="skill">Oracle</Badge>
+                <Badge variant="skill">DBeaver</Badge>
+                <Badge variant="skill">Neon DB</Badge>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">Certifications</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="skill">CCNAv7 NetaCAD (Cisco)</Badge>
+                <Badge variant="skill">Software Testing & Modeling</Badge>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">Languages</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="skill">English (Professional)</Badge>
+                <Badge variant="skill">Malay (Native)</Badge>
+              </div>
+            </CardContent>
+          </Card>
+        </MobileCardContainer>
       </section>
 
       {/* Experience Section */}
@@ -240,7 +444,7 @@ export default function Home() {
               <CardTitle className="mb-2 font-bold">Intern Forthify Technologies</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="mb-2">March 2025 – Present</p>
+              <p className="mb-2">March 2025 – December 2025</p>
               <div className="mb-4 flex flex-wrap gap-1">
                 <Badge variant="skill">CI/CD</Badge>
                 <Badge variant="skill">Next.js</Badge>
@@ -250,7 +454,7 @@ export default function Home() {
               </div>
               <ul className="list-disc pl-6 space-y-2">
                 <li>
-                  Currently involved in a AI Chatbot project that use <strong>Langchain, OpenAI, Gemini, and MongoDB Query Tool</strong> to answer questions about the company and its products. This project is still in progress.
+                  Involved in a AI Chatbot project that use <strong>Langchain, OpenAI, Gemini, and MongoDB Query Tool</strong> to answer questions about the company and its products.
                 </li>
                 <li>
                   Successfully migrated a complete website framework from WordPress to Next.js, achieving <strong>50% faster page load times</strong> and <strong>20% reduction in maintenance costs</strong> while improving developer experience and code maintainability.
@@ -265,9 +469,6 @@ export default function Home() {
                   >
                     imaginur-image-compression.vercel.app
                   </a>.
-                </li>
-                <li>
-                  Implemented CI/CD pipelines that reduced deployment time by <strong>20%</strong> and improved team productivity by enabling <strong>2x faster iteration cycles</strong>.
                 </li>
               </ul>
             </CardContent>
@@ -313,21 +514,8 @@ export default function Home() {
               <CardTitle className="mb-2 font-bold">Drone4Dengue Admin Web and DengueEye Mobile App (Final Year Project)</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="mb-4 grid grid-cols-1 md:grid-cols-3 gap-4">
-                <Image
-                  src="/drone4dengueAdmin.png"
-                  alt="Drone4Dengue Admin Website"
-                  width={400}
-                  height={200}
-                  className="rounded-lg object-cover w-full md:col-span-2"
-                />
-                <Image
-                  src="/dengueEyeMobileApp.png"
-                  alt="DengueEye Mobile App"
-                  width={200}
-                  height={200}
-                  className="rounded-lg object-cover w-full max-w-[200px] mx-auto md:mx-0 border border-black"
-                />
+              <div className="mb-4">
+                <ProjectImageCarousel />
               </div>
               <div className="mb-4 flex flex-wrap gap-1">
                 <Badge variant="skill">Next.js</Badge>
@@ -346,7 +534,7 @@ export default function Home() {
                 <Badge variant="skill">Vercel</Badge>
                 <Badge variant="skill">Render</Badge>
               </div>
-              <ul className="list-disc pl-6 space-y-2">
+              <ul className="list-disc pl-6 space-y-2 mb-4">
                 <li>
                   Designed and implemented an AI-powered system that integrates drone imagery, machine learning, and meteorological data to detect mosquito breeding sites and forecast dengue outbreak risks with <strong>over 85% prediction accuracy</strong>.
                 </li>
@@ -357,6 +545,14 @@ export default function Home() {
                   Integrated tools such as <strong>Flask, YOLOv8, Firebase Storage, and GeoCode API,</strong> enabling seamless data visualization and cloud-based drone image management.
                 </li>
               </ul>
+              <div className="flex justify-center">
+                <Button variant="outline" size="sm" asChild>
+                  <a href="https://testflight.apple.com/join/k5b9kkUJ" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                    <Apple  className="h-4 w-4" />
+                    Try on TestFlight
+                  </a>
+                </Button>
+              </div>
             </CardContent>
           </Card>
         <Card>
@@ -364,13 +560,15 @@ export default function Home() {
               <CardTitle className="mb-2 font-bold">Imaginur - AI-Powered Image Compression Tool (Company Project)</CardTitle>
             </CardHeader>
             <CardContent>
-            <Image
+            <div className="flex justify-center mb-4">
+              <Image
                 src="/imaginur.png"
                 alt="Imaginur"
                 width={400}
                 height={200}
-                className="rounded-lg object-cover mb-4"
+                className="rounded-lg object-cover"
               />
+            </div>
               <div className="mb-4 flex flex-wrap gap-1">
                 <Badge variant="skill">.NET</Badge>
                 <Badge variant="skill">HTML</Badge>
@@ -391,7 +589,7 @@ export default function Home() {
                   Built with .NET backend and responsive HTML/CSS frontend, deployed on Vercel with <strong>90% uptime</strong>.
                 </li>
               </ul>
-              <div className="flex gap-2 mt-4">
+              <div className="flex justify-center">
                 <Button variant="outline" size="sm" asChild>
                   <a href="https://imaginur-image-compression.vercel.app/" target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="w-4 h-4 mr-2" />
@@ -406,13 +604,15 @@ export default function Home() {
               <CardTitle className="mb-2 font-bold">Yuran Pakatan (Individual Project)</CardTitle>
             </CardHeader>
             <CardContent>
-              <Image
-                src="/yuran-pakatan.png"
-                alt="Yuran Pakatan"
-                width={400}
-                height={200}
-                className="rounded-lg object-cover mb-4"
-              />
+              <div className="flex justify-center mb-4">
+                <Image
+                  src="/yuran-pakatan.png"
+                  alt="Yuran Pakatan"
+                  width={400}
+                  height={200}
+                  className="rounded-lg object-cover"
+                />
+              </div>
               <div className="mb-4 flex flex-wrap gap-1">
                 <Badge variant="skill">Vue.js</Badge>
                 <Badge variant="skill">Tailwind CSS</Badge>
@@ -441,13 +641,15 @@ export default function Home() {
               <CardTitle className="mb-2 font-bold">SuduAI ERP Solutions (Company Project)</CardTitle>
             </CardHeader>
             <CardContent>
-              <Image
-                src="/suduai.png"
-                alt="SuduAI ERP Solutions"
-                width={400}
-                height={200}
-                className="rounded-lg object-cover mb-4"
-              />
+              <div className="flex justify-center mb-4">
+                <Image
+                  src="/suduai.png"
+                  alt="SuduAI ERP Solutions"
+                  width={400}
+                  height={200}
+                  className="rounded-lg object-cover"
+                />
+              </div>
               <div className="mb-4 flex flex-wrap gap-1">
                 <Badge variant="skill">Vue.js</Badge>
                 <Badge variant="skill">TypeScript</Badge>
@@ -475,13 +677,15 @@ export default function Home() {
               <CardTitle className="mb-2 font-bold">StitchMart Web Application (University Project)</CardTitle>
             </CardHeader>
             <CardContent>
-              <Image
-                src="/stitchmart.png"
-                alt="StitchMart Web Application"
-                width={400}
-                height={300}
-                className="rounded-lg object-cover mb-4"
-              />
+              <div className="flex justify-center mb-4">
+                <Image
+                  src="/stitchmart.png"
+                  alt="StitchMart Web Application"
+                  width={400}
+                  height={300}
+                  className="rounded-lg object-cover"
+                />
+              </div>
               <div className="mb-4 flex flex-wrap gap-1">
                 <Badge variant="skill">HTML</Badge>
                 <Badge variant="skill">CSS</Badge>
@@ -504,7 +708,7 @@ export default function Home() {
                   This project was submitted as my final group assignment for the Web Programming Class in July 2024, achieving <strong>Grade A</strong>.
                 </li>
               </ul>
-              <div className="flex gap-2 mt-4">
+              <div className="flex gap-2 mt-4 justify-center">
                 <Button variant="outline" size="sm" asChild>
                   <a href="https://github.com/yumdmb/stitch-mart" target="_blank" rel="noopener noreferrer">
                     <Github className="w-4 h-4 mr-2" />
@@ -647,6 +851,17 @@ export default function Home() {
           <Card>
             <CardContent className="pt-6">
               <p>
+                <strong>Dean&apos;s List Award</strong>
+              </p>
+              <p>Universiti Malaya</p>
+              <p className="text-sm mt-2">
+                Achieved Dean&apos;s List recognition in <strong>Semester 4 and Semester 6</strong> for academic excellence, maintaining outstanding performance. This honor is awarded to students who demonstrate exceptional academic achievement.
+              </p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent className="pt-6">
+              <p>
                 <strong>Preliminary Round</strong>
               </p>
               <p>PayHack 2025</p>
@@ -683,21 +898,38 @@ export default function Home() {
       {/* Reference Section */}
       <section id="reference" className="container">
         <h2 className="text-2xl font-bold md:text-3xl mb-4">Reference</h2>
-        <Card>
-          <CardHeader>
-            <CardTitle className="mb-2 font-bold">Wan Muhammad Aqil bin Wan Harun</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p>
-              <strong>Senior IT Business Analyst</strong>
-            </p>
-            <p>+6012081081</p>
-            <p>whbaqil@gmail.com</p>
-            <p className="mt-2">
-              Wan Muhammad Aqil was my former Business Analyst in A Serious AI Sdn Bhd from July 2024 to December 2024
-            </p>
-          </CardContent>
-        </Card>
+        <MobileCardContainer>
+          <Card>
+            <CardHeader>
+              <CardTitle className="mb-2 font-bold">PROF. TS. DR. NOR BADRUL ANUAR BIN JUMA&apos;AT</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p>
+                <strong>Professor</strong>
+              </p>
+              <p>+60379676436</p>
+              <p>badrul@um.edu.my</p>
+              <p className="mt-2">
+                Professor Badrul was my former lecturer in Universiti Malaya from October 2022 to February 2026 
+              </p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle className="mb-2 font-bold">WAN MUHAMMAD AQIL BIN WAN HARUN</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p>
+                <strong>Senior IT Business Analyst</strong>
+              </p>
+              <p>+6012081081</p>
+              <p>whbaqil@gmail.com</p>
+              <p className="mt-2">
+                Wan Muhammad Aqil was my former Business Analyst in A Serious AI Sdn Bhd from July 2024 to December 2024
+              </p>
+            </CardContent>
+          </Card>
+        </MobileCardContainer>
       </section>
     </div>
   )
