@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useCallback } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Eye } from "lucide-react"
 
@@ -9,71 +9,67 @@ export function VisitorCounter() {
   const [isLoaded, setIsLoaded] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
-    const incrementVisitor = async () => {
-      try {
-        // Check if this session has already been counted
-        const hasCounted = sessionStorage.getItem("portfolio-visitor-counted")
-        
-        if (!hasCounted) {
-          // Increment visitor count
-          const response = await fetch("/api/visitors", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          })
+  const incrementVisitor = useCallback(async () => {
+    try {
+      const hasCounted = sessionStorage.getItem("portfolio-visitor-counted")
 
-          if (!response.ok) {
-            const errorData = await response.json().catch(() => ({}))
-            if (errorData.error?.includes('MONGODB_URI')) {
-              // MongoDB not configured, fallback to localStorage
-              const currentCount = localStorage.getItem("portfolio-visitor-count") || "0"
-              const newCount = parseInt(currentCount) + 1
-              localStorage.setItem("portfolio-visitor-count", newCount.toString())
-              setVisitorCount(newCount)
-              sessionStorage.setItem("portfolio-visitor-counted", "true")
-              setIsLoaded(true)
-              return
-            }
-            throw new Error("Failed to increment visitor count")
+      if (!hasCounted) {
+        const response = await fetch("/api/visitors", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+        })
+
+        if (!response.ok) {
+          const errorData = await response.json().catch(() => ({}))
+          if (errorData.error?.includes("MONGODB_URI")) {
+            const currentCount = localStorage.getItem("portfolio-visitor-count") || "0"
+            const newCount = parseInt(currentCount) + 1
+            localStorage.setItem("portfolio-visitor-count", newCount.toString())
+            setVisitorCount(newCount)
+            sessionStorage.setItem("portfolio-visitor-counted", "true")
+            setIsLoaded(true)
+            return
           }
-
-          const data = await response.json()
-          setVisitorCount(data.count)
-          
-          // Mark this session as counted
-          sessionStorage.setItem("portfolio-visitor-counted", "true")
-        } else {
-          // Just fetch the current count without incrementing
-          const response = await fetch("/api/visitors")
-          
-          if (!response.ok) {
-            const errorData = await response.json().catch(() => ({}))
-            if (errorData.error?.includes('MONGODB_URI')) {
-              // MongoDB not configured, fallback to localStorage
-              const currentCount = localStorage.getItem("portfolio-visitor-count") || "0"
-              setVisitorCount(parseInt(currentCount))
-              setIsLoaded(true)
-              return
-            }
-            throw new Error("Failed to fetch visitor count")
-          }
-
-          const data = await response.json()
-          setVisitorCount(data.count)
+          throw new Error("Failed to increment visitor count")
         }
-        
-        setIsLoaded(true)
-      } catch (err) {
-        console.error("Error with visitor counter:", err)
-        setError("Failed to load visitor count")
-        setIsLoaded(true)
-      }
-    }
 
-    incrementVisitor()
+        const data = await response.json()
+        setVisitorCount(data.count)
+        sessionStorage.setItem("portfolio-visitor-counted", "true")
+      } else {
+        const response = await fetch("/api/visitors")
+
+        if (!response.ok) {
+          const errorData = await response.json().catch(() => ({}))
+          if (errorData.error?.includes("MONGODB_URI")) {
+            const currentCount = localStorage.getItem("portfolio-visitor-count") || "0"
+            setVisitorCount(parseInt(currentCount))
+            setIsLoaded(true)
+            return
+          }
+          throw new Error("Failed to fetch visitor count")
+        }
+
+        const data = await response.json()
+        setVisitorCount(data.count)
+      }
+
+      setIsLoaded(true)
+    } catch (err) {
+      console.error("Error with visitor counter:", err)
+      setError("Failed to load visitor count")
+      setIsLoaded(true)
+    }
   }, [])
+
+  useEffect(() => {
+    // Defer API call so it doesn't block initial render
+    if (typeof window !== "undefined" && "requestIdleCallback" in window) {
+      window.requestIdleCallback(() => incrementVisitor())
+    } else {
+      setTimeout(() => incrementVisitor(), 100)
+    }
+  }, [incrementVisitor])
 
   if (!isLoaded) {
     return (

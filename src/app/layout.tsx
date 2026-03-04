@@ -5,25 +5,21 @@ import { cn } from "@/lib/utils"
 import { ThemeProvider } from "@/components/theme-provider"
 import { ModeToggle } from "@/components/mode-toggle"
 import { MobileSidebar } from "@/components/mobile-sidebar"
-import { ScrollLink } from "@/components/scroll-link"
+import Link from "next/link"
 import type React from "react"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "adamarbain | ⚙️ Future SWE",
-  description: "Software Engineering student at Universiti Malaya",
+  description: "Software Engineering graduate from Universiti Malaya — seeking full-time roles from June 2026.",
 }
 
 const navItems = [
-  { href: "#home", label: "Home" },
-  { href: "#education", label: "Education" },
-  { href: "#skills", label: "Skills" },
-  { href: "#experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
-  { href: "#extracurriculars", label: "Extracurriculars" },
-  { href: "#achievements", label: "Achievements" },
-  { href: "#reference", label: "Reference" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/projects", label: "Projects" },
+  { href: "/contact", label: "Contact" },
 ]
 
 export default function RootLayout({
@@ -37,17 +33,17 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <div className="relative flex min-h-screen flex-col">
             <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-              <div className="container flex h-14 items-center justify-between">
+              <div className="container flex h-16 items-center justify-between px-4 md:px-8">
                 <MobileSidebar />
-                <nav className="hidden md:flex items-center space-x-4 lg:space-x-6">
+                <nav className="hidden md:flex items-center space-x-6">
                   {navItems.map((item) => (
-                    <ScrollLink
+                    <Link
                       key={item.href}
                       href={item.href}
                       className="text-sm font-medium transition-colors hover:text-primary"
                     >
                       {item.label}
-                    </ScrollLink>
+                    </Link>
                   ))}
                 </nav>
                 <ModeToggle />
