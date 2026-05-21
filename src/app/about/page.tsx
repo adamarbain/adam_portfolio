@@ -12,21 +12,22 @@ function AboutMeContent() {
   return (
     <div className="md:w-2/3">
       <p>
-        I&apos;m a <strong>Software Engineering graduate</strong> from <strong>Universiti Malaya</strong> (CGPA 3.57), 
-        currently working as a <strong>Research Assistant</strong> deploying the Drone4Dengue system and publishing research. 
-        I specialize in <strong>Full-Stack Development</strong> and <strong>AI-driven solutions</strong>.
+        I&apos;m a <strong>Software Engineering graduate</strong> from <strong>Universiti Malaya</strong> (CGPA 3.57) and currently a <strong>Software Engineer at Exact Asia</strong>.
+        I previously worked as a <strong>Research Assistant</strong> who deployed the Drone4Dengue system and published research in May 2026.
+        I build full-stack applications for enterprise ERP systems and AI-powered public health solutions.
       </p>
       
       <div className={`${isExpanded ? 'block' : 'hidden'} md:block`}>
         <p className="mt-4">
-          My mission is to build software that creates <strong>measurable impact</strong>—whether that&apos;s predicting 
-          dengue outbreaks with <strong>&gt;80% accuracy</strong>, migrating legacy systems to cut load times by <strong>20%</strong>, 
-          or implementing AWS S3 across <strong>12 ERP modules</strong>. I care deeply about the <strong>&ldquo;why&rdquo;</strong> behind every project.
+          At A Serious AI, I heavily invovled in the development of <strong>SuDUAI</strong>, an ERP system for SMEs built with Vue.js, TypeScript, Node.js, Express, Prisma ORM & PostgreSQL.
+        </p>
+
+        <p className="mt-4">
+          I delivered measurable impact at Forthify Technologies by migrating WordPress to Next.js to achieve <strong>20% faster page loads</strong>, 
+          and I have built production-grade applications using <strong>React</strong>, <strong>Vue.js</strong>, <strong>Node.js</strong>, and <strong>Python</strong>.
         </p>
         <p className="mt-4">
-          Outside of work, I stay active through <strong>sports</strong> and thrive in collaborative, 
-          cross-cultural environments—having participated in <strong>3 international mobility programs</strong>. 
-          I&apos;m seeking <strong>full-time Software Engineering roles starting June 2026</strong>.
+          I am currently employed as a <strong>Software Engineer at Exact Asia</strong>, and I also provide software services and advice for those who need technical support.
         </p>
       </div>
 
@@ -252,6 +253,25 @@ export default function AboutPage() {
         <MobileCardContainer>
           <Card>
             <CardHeader>
+              <CardTitle className="mb-2 font-bold">Software Engineer — Exact Asia</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="mb-2">May 2026 – Present</p>
+              <div className="mb-4 flex flex-wrap gap-1">
+                <Badge variant="skill">C++</Badge>
+                <Badge variant="skill">.NET</Badge>
+                <Badge variant="skill">Code Review</Badge>
+                <Badge variant="skill">SDLC</Badge>
+              </div>
+              {/* <ul className="list-disc pl-6 space-y-2">
+                <li>
+                  Deployed the complete <strong>Drone4Dengue</strong> app and submitted a research paper to a reputable conference/journal.
+                </li>
+              </ul> */}
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
               <CardTitle className="mb-2 font-bold">Research Assistant — Universiti Malaya</CardTitle>
             </CardHeader>
             <CardContent>
@@ -315,6 +335,9 @@ export default function AboutPage() {
                 </li>
                 <li>
                   Implemented <strong>AWS S3</strong> for file management across <strong>12 modules</strong> and integrated third-party SQL systems for full data synchronization.
+                </li>
+                <li>
+                  Built reusable Vue.js components and standardized backend APIs to accelerate feature delivery and reduce cross-module integration issues.
                 </li>
                 <li>
                   Worked in <strong>Agile</strong> environment with sprint planning, retrospectives & daily stand-ups.

@@ -17,10 +17,10 @@ export default function Home() {
         <div className="flex flex-col items-center gap-4 text-center">
           <h1 className="text-3xl font-bold sm:text-4xl md:text-5xl lg:text-6xl">Adam Bin Arbain</h1>
           <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
-            Software Engineer & Research Assistant at Universiti Malaya
+            Software Engineer @ Exact Asia
             <span className="hidden sm:inline"> — </span>
             <span className="block sm:hidden mt-1" />
-            Seeking Full-Time Roles from May 2026
+            Providing software services and advice for those who need technical support.
           </p>
           <TooltipProvider>
             <div className="flex gap-4">
@@ -117,8 +117,8 @@ export default function Home() {
             </div>
             <div className="md:w-2/3">
               <p>
-                I&apos;m a <strong>Software Engineering graduate</strong> from <strong>Universiti Malaya</strong> (CGPA 3.57), 
-                currently working as a <strong>Research Assistant</strong> deploying the Drone4Dengue system and publishing research. 
+                I&apos;m a <strong>Software Engineering graduate</strong> from <strong>Universiti Malaya</strong> (CGPA 3.57) and currently a <strong>Software Engineer at Exact Asia</strong>.
+                I previously worked as a <strong>Research Assistant</strong>, deploying the Drone4Dengue system and publishing research in May 2026.
                 I specialize in <strong>Full-Stack Development</strong> and <strong>AI-driven solutions</strong>.
               </p>
               <p className="mt-4">
@@ -171,7 +171,7 @@ export default function Home() {
                 <Badge variant="skill">Firebase</Badge>
               </div>
               <p className="text-sm text-muted-foreground mb-4">
-                AI-powered dengue outbreak prediction with <strong>&gt;80% accuracy</strong> integrating drone imagery, ML & meteorological data.
+                AI-powered dengue outbreak prediction with <strong>&gt;80% accuracy</strong> integrating drone imagery, machine learning, and meteorological data.
               </p>
               <div className="flex justify-center">
                 <Button variant="outline" size="sm" asChild>
@@ -260,8 +260,8 @@ export default function Home() {
           <CardContent className="pt-8 pb-8">
             <h2 className="text-2xl font-bold md:text-3xl mb-4">Let&apos;s Connect</h2>
             <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
-              I&apos;m seeking full-time Software Engineering roles starting May 2026. 
-              Reach out to discuss opportunities or collaborations.
+              I am currently employed as a Software Engineer at Exact Asia and available to provide software services and advice.
+              Reach out to discuss projects, technical guidance, or collaboration.
             </p>
             <div className="flex gap-4 justify-center">
               <Button asChild>

@@ -8,7 +8,7 @@ export default function ContactPage() {
       <section className="container px-4 md:px-8 pt-8">
         <h1 className="text-3xl font-bold md:text-4xl mb-2">Get in Touch</h1>
         <p className="text-muted-foreground mb-8 max-w-2xl">
-          I&apos;m seeking <strong>full-time Software Engineering roles starting June 2026</strong>. 
+          I&apos;m currently employed as a <strong>Software Engineer at Exact Asia</strong> and available to provide software services and advice. 
           Whether you have an opportunity, a question, or just want to connect — I&apos;d love to hear from you.
         </p>
 

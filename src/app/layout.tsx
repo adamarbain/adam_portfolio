@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "adamarbain | ⚙️ Future SWE",
-  description: "Software Engineering graduate from Universiti Malaya — seeking full-time roles from June 2026.",
+  description: "Software Engineer at Exact Asia and Software Engineering graduate from Universiti Malaya. Providing software services and advice.",
 }
 
 const navItems = [
