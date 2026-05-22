@@ -78,11 +78,11 @@
 }
 
 .light body {
-  background: linear-gradient(to bottom right, #e9fce9, #c6f6c6, #a4e6a4);
+  background: linear-gradient(to bottom right, #f8fafc, #f1f5f9, #e2e8f0);
 }
 
 .dark body {
-  background: linear-gradient(to bottom right, #003304, #006631, #009924);
+  background: linear-gradient(to bottom right, #0f172a, #1e293b, #0f172a);
 }
 
 /* Hide scrollbar for mobile card containers */
@@ -102,4 +102,12 @@
 
 .snap-center {
   scroll-snap-align: center;
+}
+
+/* Mobile carousel: increase scroll friction to prevent overshooting */
+.mobile-carousel {
+  -webkit-overflow-scrolling: auto; /* Disable momentum scrolling on iOS */
+  scroll-behavior: smooth;
+  overscroll-behavior-x: contain; /* Prevent overscroll bounce */
+  scroll-snap-stop: always; /* Force stopping at each snap point */
 }
